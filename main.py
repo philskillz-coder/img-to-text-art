@@ -5,13 +5,15 @@ CHARACTER_SPACING = 8
 RESIZED_WIDTH = 500
 BRIGHTNESS_LEVELS = 16
 FONT_SIZE = 12
+IMAGE_PATH = "img.png"
 TEXT = "theskzforever"
 
-filename = f"output/save.character_spacing-{CHARACTER_SPACING}.resized_width-{RESIZED_WIDTH}.brightness_levels-{BRIGHTNESS_LEVELS}.font_size-{FONT_SIZE}.text-{TEXT}.png"
+filename = f"output/save.character_spacing-{CHARACTER_SPACING}.resized_width-{RESIZED_WIDTH}.brightness_levels-\
+{BRIGHTNESS_LEVELS}.font_size-{FONT_SIZE}.text-{TEXT}.png "
 
 font = ImageFont.truetype("arial.ttf", FONT_SIZE)
 
-original = Image.open("output/img.png")
+original = Image.open(IMAGE_PATH)
 
 # original = ImageOps.invert(original)
 original = ImageOps.grayscale(original)

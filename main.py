@@ -1,12 +1,58 @@
 import random
 from PIL import Image, ImageDraw, ImageOps, ImageFont
+from argparse import ArgumentParser
 
-CHARACTER_SPACING = 8
-RESIZED_WIDTH = 500
-BRIGHTNESS_LEVELS = 16
-FONT_SIZE = 12
-IMAGE_PATH = "img.png"
-TEXT = "theskzforever"
+parser = ArgumentParser()
+parser.add_argument(
+    "--image",
+    type=str,
+    required=True,
+    help="The image to process"
+)
+parser.add_argument(
+    "--text",
+    type=str,
+    required=False,
+    default="theskzforever",
+    help="The text to use in the art"
+)
+parser.add_argument(
+    "--character-spacing",
+    type=int,
+    required=False,
+    default=8,
+    help="How much the characters are spaced. (! Diffrent font sizes need diffrent spacings !)"
+)
+parser.add_argument(
+    "--resized-width",
+    type=int,
+    required=False,
+    default=100,
+    help="The resized width of the original image"
+)
+parser.add_argument(
+    "--brightness-levels",
+    type=int,
+    required=False,
+    default=8,
+    help="How many levels of brightness exist in the art"
+)
+parser.add_argument(
+    "--font-size",
+    type=int,
+    required=False,
+    default=10,
+    help="The font size used in the art"
+)
+
+values = parser.parse_args()
+
+CHARACTER_SPACING = values.character_spacing
+RESIZED_WIDTH = values.resized_width
+BRIGHTNESS_LEVELS = values.brightness_levels
+FONT_SIZE = values.font_size
+IMAGE_PATH = values.image_path
+TEXT = values.text
 
 filename = f"output/save.character_spacing-{CHARACTER_SPACING}.resized_width-{RESIZED_WIDTH}.brightness_levels-\
 {BRIGHTNESS_LEVELS}.font_size-{FONT_SIZE}.text-{TEXT}.png "

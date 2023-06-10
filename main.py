@@ -116,9 +116,8 @@ for row, row_data in enumerate(pixels):
             current_character += 1
             current_character %= len(TEXT)
 
-        # place the letters randomly within the offset bounds to create an effect of darkness
         else:
-            for x in range(letters):
+            for _ in range(letters):
                 offset_x = random.randint(-offset_bounds, offset_bounds) // 2
                 offset_y = random.randint(-offset_bounds, offset_bounds) // 2
 
